@@ -7,30 +7,30 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user_mgmt_mysql_back_dep
+      app: user-mgmt-mysql-back-dep
   template:
     metadata:
       labels:
-        app: user_mgmt_mysql_back_dep
+        app: user-mgmt-mysql-back-dep
     spec:
       containers:
-        - name: user_mgmt_mysql
+        - name: user-mgmt-mysql
           image: mysql:5.6
           envFrom: 
-            - secretRef: user_mgmt_mysql_var
+            - secretRef: user-mgmt-mysql-var
           ports:
             - containerPort: 3306
               name: mysqlPort
           volumeMounts:
             - name: mysql_pvc
               mountPath: /var/lib/mysql
-            - name: user_mgmt_mysql_script   #config map
+            - name: user-mgmt-mysql-script   #config map
               mountPath: docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance
          
       volumes:
-        - name: mysql_pvc
+        - name: mysql-pvc
           persistentVolumeClaim:
-            claim_name: user_mgmt_mysql_pv      #pv name
+            claim_name: user-mgmt-mysql-pv      #pv name
         - name: user_mgmt_mysql_script  # config map to create requraired DB scema 
           configMap:
-            name: user_mgmt_mysql_configMap
+            name: user-mgmt-mysql-configMap

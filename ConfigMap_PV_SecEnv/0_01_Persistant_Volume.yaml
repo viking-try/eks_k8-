@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: user_mgmt_mysql_pv  #will be used in mysql Deployment file
+  name: user-mgmt-mysql-pv  #will be used in mysql Deployment file
 
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: user_mgmt_mysql_sc  # from storage class
+  storageClassName: user-mgmt-mysql-sc  # from storage class
   resources:
     requests:
       storage: 5Gi

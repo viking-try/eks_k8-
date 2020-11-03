@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: user_mgmt_mysql_var
+  name: user-mgmt-mysql-var
 
 data:
    MYSQL_ROOT_PASSWORD: cABhAHMAcwB3AGQAMQAyADMANAA=     #passwd1234
