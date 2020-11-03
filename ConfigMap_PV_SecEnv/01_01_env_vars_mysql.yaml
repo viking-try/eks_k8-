@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: user_mgmt_mysql_var
+
+data:
+   MYSQL_ROOT_PASSWORD: cABhAHMAcwB3AGQAMQAyADMANAA=     #passwd1234
+   
+#windows:
+
+  # $ENCODED = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes(passwd1234))
+  # Write-Output $ENCODED
+
+  # $DECODED = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String("cABhAHMAcwB3AGQAMQAyADMANAA="))
+  # Write-Output $DECODED
+
+#Linux/Mac:
+  
+  # echo -n "passwd1234" | base64
+  # echo -n "cABhAHMAcwB3AGQAMQAyADMANAA=" | base64 --decode 
