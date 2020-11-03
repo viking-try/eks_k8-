@@ -19,7 +19,7 @@ spec:
         - name: user-mgmt-mysql
           image: mysql:5.6
           envFrom: 
-            - secretRef: user-mgmt-mysql-var
+          - secretRef: user-mgmt-mysql-var
           ports:
             - containerPort: 3306
               name: mysqlPort
@@ -32,7 +32,7 @@ spec:
       volumes:
         - name: mysql-pvc
           persistentVolumeClaim:
-            claim_name: user-mgmt-mysql-pv      #pv name
+            claimName: user-mgmt-mysql-pv      #pv name
         - name: user_mgmt_mysql_script  # config map to create requraired DB scema 
           configMap:
             name: user-mgmt-mysql-configMap
