@@ -24,7 +24,7 @@ spec:
             - containerPort: 3306
               name: mysqlPort
           volumeMounts:
-            - name: mysql_pvc
+            - name: mysql-pvc
               mountPath: /var/lib/mysql
             - name: user-mgmt-mysql-script   #config map
               mountPath: docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance
