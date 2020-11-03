@@ -19,7 +19,8 @@ spec:
         - name: user-mgmt-mysql
           image: mysql:5.6
           envFrom: 
-          - secretRef: user-mgmt-mysql-var
+          - secretRef:
+              name: user-mgmt-mysql-var
           ports:
             - containerPort: 3306
               name: mysqlPort
