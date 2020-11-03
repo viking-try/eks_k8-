@@ -33,4 +33,4 @@ spec:
             claim_name: user_mgmt_mysql_PV      #pv name
         - name: user_mgmt_mysql_script  # config map to create requraired DB scema 
           configMap:
-            name: ?
+            name: user_mgmt_mysql_configMap
