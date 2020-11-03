@@ -1,13 +1,15 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql_back_dep
+  name: mysql-back-dep
 
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: user-mgmt-mysql-back-dep
+  strategy:
+    type: Recreate 
   template:
     metadata:
       labels:

@@ -3,7 +3,7 @@
 apiVersion: v1 
 kind: ConfigMap
 metadata:
-  name: user-mgmt-mysql-configMap
+  name: user-mgmt-mysql-configmap
 data:
   user_mgmt_mysql.sql: |-
     DROP DATABASE IF EXISTS usermgmt;
