@@ -34,6 +34,6 @@ spec:
         - name: mysql-pvc
           persistentVolumeClaim:
             claimName: user-mgmt-mysql-pv      #pv name
-        - name: user_mgmt_mysql_script  # config map to create requraired DB scema 
+        - name: user-mgmt-mysql-script  # config map to create requraired DB scema 
           configMap:
             name: user-mgmt-mysql-configMap
