@@ -1,6 +1,6 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: user_mgmt_mysql_SC   #will me used in PV
+  name: user_mgmt_mysql_sc   #will me used in PV
 provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
