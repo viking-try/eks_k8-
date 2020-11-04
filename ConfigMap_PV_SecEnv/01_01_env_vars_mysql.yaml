@@ -4,7 +4,7 @@ metadata:
   name: mysql-db-password
 type: Opaque
 data: 
-  db-password: cABhAHMAcwB3AGQAMQAyADMANAA=
+  db-password: cGFzc3dkMTIzNA==
 #passwd1234   
 #windows:
 
