@@ -18,22 +18,22 @@ spec:
       containers:
         - name: user-mgmt-mysql
           image: mysql:5.6
-          envFrom: 
-          - secretRef:
-              name: user-mgmt-mysql-var
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: dbpassword11
           ports:
             - containerPort: 3306
-              name: mysqlport
+              name: mysql    
           volumeMounts:
             - name: mysql-pvc
               mountPath: /var/lib/mysql
-            - name: user-mgmt-mysql-script   #config map
-              mountPath: docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance
+            - name: usermanagement-dbcreation-script
+              mountPath: /docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance
          
       volumes:
         - name: mysql-pvc
           persistentVolumeClaim:
             claimName: user-mgmt-mysql-pv      #pv name
-        - name: user-mgmt-mysql-script  # config map to create requraired DB scema 
+        - name: usermanagement-dbcreation-script
           configMap:
-            name: user-mgmt-mysql-configMap
+            name: usermanagement-dbcreation-script

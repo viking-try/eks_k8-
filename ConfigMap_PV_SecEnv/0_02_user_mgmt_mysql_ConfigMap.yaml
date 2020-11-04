@@ -1,10 +1,10 @@
-#This is config map which have a mysql script.
-#we will map this script to mysql container as an volune and run it at every boot of container.
-apiVersion: v1 
+apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: user-mgmt-mysql-configmap
-data:
-  user_mgmt_mysql.sql: |-
+  name: usermanagement-dbcreation-script
+data: 
+  mysql_usermgmt.sql: |-
     DROP DATABASE IF EXISTS usermgmt;
     CREATE DATABASE usermgmt;
+#This is config map which have a mysql script.
+#we will map this script to mysql container as an volune and run it at every boot of container.
