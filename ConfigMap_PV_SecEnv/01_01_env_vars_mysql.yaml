@@ -4,8 +4,13 @@ metadata:
   name: mysql-db-password
 type: Opaque
 data: 
-  db-password: cGFzc3dkMTIzNA==
-#passwd1234   
+  db-password: cGFzc3dkMTIzNA==                   
+  db-host: dXNlci1tZ210LW15c3FsLWJhY2stc2VydmljZQ==  
+  db-user: cm9vdA==     
+
+#passwd1234  
+#user-mgmt-mysql-back-service 
+#root
 #windows:
 
 # $ENCODED = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes(passwd1234))
