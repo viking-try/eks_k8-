@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+Kind: Deployment
+metadata:
+  name: user-mgmt-app
+
+spec:
+  replicas: 2
+  selector:
+    matchLables:
+      app: user-mgmt-front-app
+  template:
+    metadata:
+      labels:
+        app: user-mgmt-front-app
+    containers:
+      - name: user-mgmt
+        image: stacksimplify/kube-usermanagement-microservice:1.0.0
+        env:
+          - name: DB_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mysql-db-password
+                key: db-user
+          - name: DB_HOSTNAME
+            valueFrom:
+                secretKeyRef:
+                  name: mysql-db-password
+                  key: db-host
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-db-password
+                key: db-password
+          - name: DB_PORT
+            value: "3306"
+          - name: DB_NAME
+            value: "usermgmt"
+               
+        ports: 
+          - containerPort: 8095
+              
+            
+                
+
+        
