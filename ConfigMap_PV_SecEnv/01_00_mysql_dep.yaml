@@ -29,15 +29,10 @@ spec:
             - containerPort: 3306
               name: mysql    
           volumeMounts:
-            - name: mysql-pvc
-              mountPath: /var/lib/mysql
             - name: usermanagement-dbcreation-script
               mountPath: /docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance
          
       volumes:
-        - name: mysql-pvc
-          persistentVolumeClaim:
-            claimName: user-mgmt-mysql-pv      #pv name
         - name: usermanagement-dbcreation-script
           configMap:
             name: usermanagement-dbcreation-script
