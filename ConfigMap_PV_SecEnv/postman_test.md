@@ -6,7 +6,7 @@ Download Postman client
 
 Import Project to Postman
 
-    Import the postman project AWS-EKS-Masterclass-Microservices.postman_collection.json present in folder.
+    Import the postman project AWS-EKS.postman_collection.json present in folder.
 
 Create Environment in postman
 
