@@ -1,0 +1,33 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: hisec
+  region: us-east-1   # Can use region: ${AWS_REGION}
+nodeGroups:
+  - name: hisec-spot
+    labels:
+      lifecycle: Ec2Spot
+ #   taints:
+ #     spotInstance: true:PreferNoSchedule
+    minSize: 1
+    desiredCapacity: 1
+    maxSize: 2
+    instancesDistribution: 
+      instanceTypes:
+        - t3.medium
+        - m5.large
+        - m4.large
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0 # all the instances will be Spot Instances
+      spotAllocationStrategy: capacity-optimized # launch Spot Instances from the most availably Spot Instance pools
+    iam:
+      withAddonPolicies:
+        albIngress: true
+        appMesh: true
+        imageBuilder: true
+        autoScaler: true
+        externalDNS: true
+        ebs: true                
+    volumeSize: 20
+    ssh:
+      publicKeyName: 'crs'

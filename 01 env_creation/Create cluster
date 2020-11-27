@@ -1,0 +1,29 @@
+eksctl create cluster --name=hisec --region=us-east-1 --zones=us-east-1a,us-east-1b --without-nodegroup 
+
+eksctl utils associate-iam-oidc-provider --region us-east-1 --cluster hisec --approve
+	
+eksctl create nodegroup --cluster=hisec --region=us-east-1 --name=hisec-onD --node-type=t3.medium --nodes=1 --nodes-min=1 --nodes-max=2 --node-volume-size=20 --ssh-access --ssh-public-key=crs --managed --asg-access --external-dns-access --full-ecr-access --appmesh-access  --alb-ingress-access
+					   
+# List EKS clusters
+eksctl get cluster
+
+# List NodeGroups in a cluster
+eksctl get nodegroup --cluster=<clusterName>
+
+# List Nodes in current kubernetes cluster
+kubectl get nodes -o wide
+
+# Our kubectl context should be automatically changed to new cluster
+kubectl config view --minify					   
+
+
+Deleting cluster and nodegroup :
+
+eksctl delete nodegroup --cluster=hisec --name=hisec-onD
+eksctl delete cluster hisec
+
+Enable kubectl bash_completion
+
+kubectl completion bash >>  ~/.bash_completion
+. /etc/profile.d/bash_completion.sh
+. ~/.bash_completions
